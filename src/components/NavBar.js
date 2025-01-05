@@ -8,9 +8,12 @@ import { useNavigate } from "react-router-dom";
 const NavBar = observer(() => {
     const {user} = useContext(Context);
     const navigate = useNavigate();
-    const login = () => { 
-        user.setIsAuth(!user.isAuth); 
-    };
+
+    const logOut = () => {
+      user.setUser({})
+      user.setIsAuth(false)
+    }
+
     return (
       <Navbar bg="dark" data-bs-theme="dark" className="navbar navbar-light bg-light">
         <Container className="container-fluid">
@@ -19,10 +22,10 @@ const NavBar = observer(() => {
             { user.isAuth ? 
                 <div className="d-flex gap-3">
                   <Button variant={"outline-light"} onClick={ () => navigate(ADMIN_ROUTE) }>Админ панель</Button>
-                  <Button variant={"outline-light"} onClick={ () => navigate(LOGIN_ROUTE) }>Выйти</Button>
+                  <Button variant={"outline-light"} onClick={ () => logOut() }>Выйти</Button>
                 </div>
                 :
-                <Button variant={"outline-light"} onClick={login}>Авторизация</Button>
+                <Button variant={"outline-light"} onClick={ () => navigate(LOGIN_ROUTE) }>Авторизация</Button>
             }
           </Nav>
         </Container>

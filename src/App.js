@@ -16,7 +16,12 @@ const App = observer(() => {
             check().then(data => {
                 user.setUser(true)
                 user.setIsAuth(true)
+<<<<<<< Updated upstream
             }).finally(() => setLoading(false))
+=======
+            }).catch(e => console.error(e))
+            .finally(() => setLoading(false))
+>>>>>>> Stashed changes
         }, 1000)
     }, [])
 

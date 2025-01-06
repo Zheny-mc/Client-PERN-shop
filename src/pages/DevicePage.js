@@ -1,5 +1,6 @@
-import React, {useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
+import {Context} from '../index';
 import bigStar from '../assets/bigStar.png';
 import { useParams } from "react-router-dom";
 import { fetchOneDevice } from "../http/deviceApi";

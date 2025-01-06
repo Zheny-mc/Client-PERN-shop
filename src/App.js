@@ -14,15 +14,15 @@ const App = observer(() => {
     useEffect( () => {
         setTimeout(() => {
             check().then(data => {
-                user.setUser(true)
+                user.setUser(data)
                 user.setIsAuth(true)
-<<<<<<< Updated upstream
-            }).finally(() => setLoading(false))
-=======
-            }).catch(e => console.error(e))
+            }).catch((e) => {
+                user.setUser({})
+                user.setIsAuth(false)
+                console.error('My: ' + e.message)
+            })
             .finally(() => setLoading(false))
->>>>>>> Stashed changes
-        }, 1000)
+        }, 50)
     }, [])
 
     if (loading) {
